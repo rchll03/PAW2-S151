@@ -1,0 +1,234 @@
+{
+  "info": {
+    "_postman_id": "df9cf38d-d3b0-44af-a4eb-220eeee60ea8",
+    "name": "PAW2-SI51",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58518848",
+    "_collection_link": "https://go.postman.co/collection/58518848-df9cf38d-d3b0-44af-a4eb-220eeee60ea8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Fakulktas",
+      "item": [
+        {
+          "name": "Create Fakultas",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Fakultas Ilmu Komputer dan Rekayasa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Fakultas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6acbaf2c73b99c6d004c5d4a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Fakultas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6acbaf2c73b99c6d004c5d4a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Fakultas",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Teknik Elektro Updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6acbaf2c73b99c6d004c5d4a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Fakultas",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6acbaf2c73b99c6d004c5d4a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Prodi",
+      "item": [
+        {
+          "name": "Create Prodi",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"kode\": \"IF01\",\r\n  \"nama_prodi\": \"Informatika\",\r\n  \"fakultas_id\": \"6acbc0bc6abe3354ae7708da\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/prodi",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Prodi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/prodi",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Prodi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6acbc0de6abe3354ae7708db",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6acbc0de6abe3354ae7708db"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Prodi",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"kode\": \"SI01\",\r\n  \"nama_prodi\": \"Sistem Informasi Updated\",\r\n  \"fakultas_id\": \"6acbc0bc6abe3354ae7708da\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6acbc0de6abe3354ae7708db",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6acbc0de6abe3354ae7708db"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Prodi",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6acbc0de6abe3354ae7708db",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6acbc0de6abe3354ae7708db"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

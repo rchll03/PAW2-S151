@@ -1,6 +1,9 @@
 import fakultasModel from '../model/fakultas.model.js'
-import { apiResponse } from '../utils/response.js'
-import { storeFakultasSchema } from '../schemas/fakultas.schema.js'
+import { apiResponse, apiResponseValidation } from '../utils/response.js'
+import {
+  storeFakultasSchema,
+  updateFakultasSchema,
+} from '../schemas/fakultas.schema.js'
 
 class FakultasController {
   static async index(req, res) {
