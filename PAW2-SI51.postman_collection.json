@@ -17,7 +17,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"Fakultas Ilmu Komputer dan Rekayasa\"\r\n}",
+              "raw": "{\r\n  \"name\": \"Manajement\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -42,13 +42,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "raw": "{{BASE_URL}}/fakultas",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "fakultas",
-                "6acbaf2c73b99c6d004c5d4a"
+                "fakultas"
               ]
             }
           },
@@ -60,13 +59,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "raw": "{{BASE_URL}}/fakultas/6ad20ed3cb3d7905261fe5cd",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "fakultas",
-                "6acbaf2c73b99c6d004c5d4a"
+                "6ad20ed3cb3d7905261fe5cd"
               ]
             }
           },
@@ -79,7 +78,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"Teknik Elektro Updated\"\r\n}",
+              "raw": "{\r\n    \"name\": \"Manajemen Updated\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -87,13 +86,13 @@
               }
             },
             "url": {
-              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "raw": "{{BASE_URL}}/fakultas/6ad20ed3cb3d7905261fe5cd",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "fakultas",
-                "6acbaf2c73b99c6d004c5d4a"
+                "6ad20ed3cb3d7905261fe5cd"
               ]
             }
           },
@@ -105,13 +104,13 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas/6acbaf2c73b99c6d004c5d4a",
+              "raw": "{{BASE_URL}}/fakultas/6ad20ed3cb3d7905261fe5cd",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "fakultas",
-                "6acbaf2c73b99c6d004c5d4a"
+                "6ad20ed3cb3d7905261fe5cd"
               ]
             }
           },
@@ -129,7 +128,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"kode\": \"IF01\",\r\n  \"nama_prodi\": \"Informatika\",\r\n  \"fakultas_id\": \"6acbc0bc6abe3354ae7708da\"\r\n}",
+              "raw": "{\r\n  \"kode\": \"FKO1\",\r\n  \"nama_prodi\": \"FKIR\",\r\n  \"fakultas_id\": \"6acbd817749c2ae1a4fe1f1a\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -171,13 +170,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/prodi/6acbc0de6abe3354ae7708db",
+              "raw": "{{BASE_URL}}/prodi/6acbd89a749c2ae1a4fe1f1b",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "prodi",
-                "6acbc0de6abe3354ae7708db"
+                "6acbd89a749c2ae1a4fe1f1b"
               ]
             }
           },
@@ -186,11 +185,11 @@
         {
           "name": "Update Prodi",
           "request": {
-            "method": "PATCH",
+            "method": "PUT",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "\r\n{\r\n  \"kode\": \"SI01\",\r\n  \"nama_prodi\": \"Sistem Informasi Updated\",\r\n  \"fakultas_id\": \"6acbc0bc6abe3354ae7708da\"\r\n}",
+              "raw": "{\r\n  \"kode\": \"FKO1-update\",\r\n  \"nama_prodi\": \"Sistem Informasi update\",\r\n  \"fakultas_id\": \"6acbd817749c2ae1a4fe1f1a\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -198,13 +197,13 @@
               }
             },
             "url": {
-              "raw": "{{BASE_URL}}/prodi/6acbc0de6abe3354ae7708db",
+              "raw": "{{BASE_URL}}/prodi/6acbd89a749c2ae1a4fe1f1b",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "prodi",
-                "6acbc0de6abe3354ae7708db"
+                "6acbd89a749c2ae1a4fe1f1b"
               ]
             }
           },

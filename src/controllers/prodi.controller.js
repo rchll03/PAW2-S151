@@ -89,6 +89,7 @@ class ProdiController {
                 })
             }
 
+            if (fakultas_id){
             const isExists = await fakultasModel.exists({
                 _id: new mongoose.Types.ObjectId(fakultas_id),
             })
@@ -98,8 +99,11 @@ class ProdiController {
                     res,
                     status: 404,
                     message: "Fakultas tidak ada",
+                    data: null
                 })
             }
+
+        }
 
             const newProdi = await ProdiModel.create({
                 kode,
@@ -168,9 +172,9 @@ class ProdiController {
             const updatedProdi = await ProdiModel.findByIdAndUpdate(
                 id,
                 {
-                    kode,
-                    nama_prodi,
-                    fakultas: fakultas_id,
+                    kode : kode,
+                    nama_prodi : nama_prodi,
+                    fakultas: fakultas_id
                 },
                 {
                     new: true,
@@ -182,14 +186,15 @@ class ProdiController {
                 return apiResponse({
                     res,
                     status: 404,
-                    message: "Prodi tidak ditemukan",
+                    message: "Prodi tidak ada",
+                    data: null
                 })
             }
 
             return apiResponse({
                 res,
                 status: 200,
-                message: "Prodi berhasil diperbarui",
+                message: "Data berhasil update",
                 data: updatedProdi,
             })
         } catch (error) {
@@ -219,7 +224,8 @@ class ProdiController {
                 return apiResponse({
                     res,
                     status: 404,
-                    message: "Prodi tidak ditemukan",
+                    message: "Prodi tidak ada",
+                    data: null
                 })
             }
 
