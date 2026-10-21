@@ -4,5 +4,5 @@ export const storeFakultasSchema = z.object({
   name: z.string().trim().min(3, 'Nama Fakultas Wajib 3 karakter'),
 })
 export const updateFakultasSchema = z.object({
-    name : z.string().trim().min(3, "Nama Fakultas wajib 3 karkter")
+  name: z.string().trim().min(3, 'Nama Fakultas wajib 3 karkter'),
 })

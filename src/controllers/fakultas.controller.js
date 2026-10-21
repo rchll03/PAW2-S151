@@ -1,13 +1,32 @@
 import fakultasModel from '../model/fakultas.model.js'
+import { storeFakultasSchema, updateFakultasSchema } from '../schemas/fakultas.schema.js'
 import { apiResponse, apiResponseValidation } from '../utils/response.js'
-import {
-  storeFakultasSchema,
-  updateFakultasSchema,
-} from '../schemas/fakultas.schema.js'
 
 class FakultasController {
   static async index(req, res) {
-    const listFakultas = await fakultasModel.find()
+    const { search, sort, sortBy = 'createdAt' } = req.query
+
+    const filter = {}
+    const sortOption = {
+      [sortBy]: sort === 'desc' ? -1 : 1,
+    }
+
+    if (search) {
+      filter.name = {
+        $regex: search,
+        $options: 'i',
+      }
+    }
+
+    const listFakultas = await fakultasModel
+      .find(filter)
+      .select({
+        _id: 1,
+        name: 1,
+        createdAt: 1,
+        updatedAt: 1,
+      })
+      .sort(sortOption)
 
     return apiResponse({
       res,

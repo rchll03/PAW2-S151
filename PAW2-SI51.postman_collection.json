@@ -17,7 +17,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"Manajement\"\r\n}",
+              "raw": "{\r\n  \"name\": \"Fakultas Ilmu Teknologi\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -42,12 +42,26 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas",
+              "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=desc&sortBy=name",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "fakultas"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "ilmu"
+                },
+                {
+                  "key": "sort",
+                  "value": "desc"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "name"
+                }
               ]
             }
           },
@@ -59,13 +73,26 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas/6ad20ed3cb3d7905261fe5cd",
+              "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=desc&sortBy=name",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "fakultas",
-                "6ad20ed3cb3d7905261fe5cd"
+                "fakultas"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "ilmu"
+                },
+                {
+                  "key": "sort",
+                  "value": "desc"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "name"
+                }
               ]
             }
           },
@@ -153,12 +180,18 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/prodi",
+              "raw": "{{BASE_URL}}/prodi?search",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "prodi"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": ""
+                }
               ]
             }
           },
