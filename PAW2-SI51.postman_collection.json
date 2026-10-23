@@ -42,7 +42,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=desc&sortBy=name",
+              "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=asc&sortBy=name&page=3&limit=1&=",
               "host": [
                 "{{BASE_URL}}"
               ],
@@ -56,11 +56,23 @@
                 },
                 {
                   "key": "sort",
-                  "value": "desc"
+                  "value": "asc"
                 },
                 {
                   "key": "sortBy",
                   "value": "name"
+                },
+                {
+                  "key": "page",
+                  "value": "3"
+                },
+                {
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             }
