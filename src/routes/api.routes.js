@@ -7,14 +7,19 @@ import UploadController from '../controllers/upload.controller.js'
 import UserController from '../controllers/user.controller.js'
 import WelcomeController from '../controllers/welcome.controller.js'
 import logMiddleware from '../middleware/log.middleware.js'
+import {authenticateJwt} from '../middleware/auth.js'
 
 const router = express.Router()
+
+
 
 router.get('/welcome', WelcomeController.welcome)
 router.post('/users', UserController.store)
 router.post('/upload', upload.single('file'), UploadController.store)
 
 router.use(logMiddleware)
+router.use(authenticateJwt)
+
 
 router.get('/fakultas', FakultasController.index)
 router.get('/fakultas/:id', FakultasController.show)

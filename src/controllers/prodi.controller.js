@@ -28,7 +28,7 @@ class ProdiController {
     };
 
     if (search) {
-      filter.name = {
+      filter.nama_prodi = {
         $regex: search,
         $options: 'i',
       }
@@ -47,17 +47,29 @@ class ProdiController {
         .sort(sortOption)
         .skip(skip)
         .limit(perPage)
-        .populate("fakultas"),]
-      );
-        
-      
+        .populate("fakultas"),
+
+        ProdiModel.countDocuments(filter)
+      ]);
+
+      const totalPages = Math.ceil(totalData/perPage)  
 
       return apiResponse({
         res,
         status: 200,
         message: 'List Prodi',
-        data: listProdi,
-      })
+        data: {
+        items : listProdi,
+        pagination: {
+          totalData,
+          totalPages,
+          currentPage,
+          perPage,
+          hanNextPage: currentPage < totalPages,
+          hasPrevPage: currentPage > 1
+          }
+        },
+      });
     } catch (error) {
       return apiResponse({
         res,
