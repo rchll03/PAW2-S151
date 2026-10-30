@@ -20,8 +20,7 @@ export const registerschema = z.object({
 
 export const loginschema = z.object({
   email: z.email(),
-  password : passwordschem
+  password : passwordschema
 
 })
 
-export default Authschema

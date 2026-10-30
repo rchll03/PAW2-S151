@@ -8,6 +8,8 @@ import UserController from '../controllers/user.controller.js'
 import WelcomeController from '../controllers/welcome.controller.js'
 import logMiddleware from '../middleware/log.middleware.js'
 import {authenticateJwt} from '../middleware/auth.js'
+import Authcontroller from '../controllers/auth.controller.js'
+
 
 const router = express.Router()
 
@@ -18,6 +20,10 @@ router.post('/users', UserController.store)
 router.post('/upload', upload.single('file'), UploadController.store)
 
 router.use(logMiddleware)
+
+router.post('/register', Authcontroller.register)
+router.post('/login', Authcontroller.login)
+
 router.use(authenticateJwt)
 
 

@@ -1,8 +1,7 @@
-import { lowercase } from "zod";
+import mongoose from "mongoose";
 
-const {default: mongose } = require("mongoose");
 
-const Schema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -25,5 +24,5 @@ const Schema = new mongoose.Schema(
   },
 );
 
-const UserModel = mongoose.model('users', fakultasSchema)
+const UserModel = mongoose.model('users', userSchema)
 export default UserModel

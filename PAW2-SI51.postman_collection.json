@@ -40,7 +40,12 @@
           "name": "List Fakultas",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0gfq}}"
+              }
+            ],
             "url": {
               "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=asc&sortBy=name&page=3&limit=1&=",
               "host": [
@@ -190,9 +195,14 @@
           "name": "List Prodi",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{bearer_token_0gfq}}"
+              }
+            ],
             "url": {
-              "raw": "{{BASE_URL}}/prodi?search",
+              "raw": "{{BASE_URL}}/prodi?search=ekonomi&sort=asc&sortBy=kode&limit=10&page=1&=",
               "host": [
                 "{{BASE_URL}}"
               ],
@@ -202,6 +212,26 @@
               "query": [
                 {
                   "key": "search",
+                  "value": "ekonomi"
+                },
+                {
+                  "key": "sort",
+                  "value": "asc"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "kode"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "",
                   "value": ""
                 }
               ]
@@ -273,6 +303,69 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Rachel\",\r\n    \"email\": \"jiji@gmail.com\",\r\n    \"password\": \"00009999\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/register",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"jiji@gmail.com\",\r\n    \"password\": \"00009999\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/login",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "bearer_token_0gfq",
+      "secret": true
     }
   ]
 }

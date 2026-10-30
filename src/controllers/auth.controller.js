@@ -1,37 +1,87 @@
-import UserModelModel from "../model/user.model.js";
-import { registerschema } from "../schemas/auth.schema.js";
-import { PasswordHelper } from "../utils/bcrypt.js";
-import { apiResponse, apiResponseValidation } from "../utils/response.js";
+import UserModel from '../model/user.model.js';
+import { loginschema, registerschema } from '../schemas/auth.schema.js';
+import { PasswordHelper } from '../utils/bcrypt.js';
+import { JwtHelper } from '../utils/jwt.js';
+import { apiResponse, apiResponseValidation } from '../utils/response.js';
 
 class Authcontroller {
-    static async register(req, res) {
-        const result = registerschema.safeParse (req.body)
+  static async register(req, res) {
+    const result = registerschema.safeParse(req.body);
+    if (!result.success) {
+      return apiResponseValidation({ res, errors: result.error });
+    }
 
-        if (!result.succes) {
-            return apiResponseValidation({
-                res,
-                errors : result.error
-            })
-        }
-        const {name, email, password} = result.data
+    const { name, email, password } = result.data;
+    const newUser = await UserModel.create({
+      name,
+      email,
+      password: await PasswordHelper.hash(password),
+    });
 
-        const newUser = await UserModel.create ({
-            name,
-            email,
-            password : await PasswordHelper.hash(password)
-        })
+    return apiResponse({
+      res,
+      status: 200,
+      message: 'Register Berhasil', 
+      data: {
+        user: {
+          _id: newUser._id,
+          name,
+          email,
+        },
+      },
+    });
+  }
+
+  static async login(req, res) {
+    const result = loginschema.safeParse(req.body);
+    if (!result.success) {
+      return apiResponseValidation({
+        res,
+        errors: result.error,
+      });
+    }
+
+    const { email, password } = result.data;
+    const user = await UserModel.findOne({ email }).select('+password');
+
+    if (!user) {
+      return apiResponse({
+        res,
+        status: 401,
+        message: 'Email Atau Password Tidak Valid', 
+      });
+    }
+
+    const passwordIsValid = await PasswordHelper.compare(password, user.password)
+    console.log(password)
+    console.log(user.password)
+
+    if(!passwordIsValid){
         return apiResponse({
             res,
-            status: 200,
-            massage: "Register Berhasil",
-            data: null
-
+            status: 401,
+            message: 'Email Atau Password Tidak Valid', 
         })
     }
 
-    static async login (req, res) {
+    const accessToken = await JwtHelper.sign({
+        sub : user._id.toString()
+    })
 
-    }
+    return apiResponse({
+        res,
+        status: 200,
+        message: 'Login Berhasil',
+        data:{
+            user:{
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            },
+            access_token : accessToken
+        }
+    })
+  }
 }
 
-export default Authcontroller
+export default Authcontroller;
